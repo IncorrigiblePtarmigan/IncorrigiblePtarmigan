@@ -1,0 +1,41 @@
+<div ng-controller='listController'>
+  <div ng-hide='inEdit' id='list'>
+    <h1 class='headline'>All Guests</h1>
+    <div class='listview'>
+      <h5>Number of Guests: {{ guests.data.length }} </h5>
+      <table class='guestList'>
+        <tr>
+          <th>Guest</th>
+          <th>Table</th>
+          <th>Plus-One</th>
+          <th>People They Shouldn't Sit Near</th>
+        </tr>
+        <tr ng-repeat="guest in guests.data">
+          <td class='row' ng-click='fauxRedirect(guest.guestName)'>{{ guest.guestName }}</td>
+          <td ng-click='fauxRedirect(guest.guestName)'>{{ guest.diningTableId }}</td>
+          <td ng-click='fauxRedirect(guest.guestName)'>{{ guest.friendName }}</td>
+          <td ng-click='fauxRedirect(guest.guestName)'>{{ guest.constraints }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div ng-hide='!inEdit' id='edit'>
+    <h1 class='headline'>Edit Guest Information</h1>
+    <form name='editGuestForm'>
+      <div>
+        <input ng-model='guest.guestName' placeholder="this guest's name">
+      </div>
+      <div>
+        <input ng-model='guest.friendName' placeholder="this guest's plus-one">
+      </div>
+      <div>
+        <input ng-model='guest.constraints' placeholder='any guests this guest should not sit with, separated by commas'>
+      </div>
+      <div>
+        Dining Table ID: {{guest.diningTableId}}
+      </div>
+      <button ng-click='editGuest()'>Done Editing Guest</button>
+    </form>
+    </d
+</div>
