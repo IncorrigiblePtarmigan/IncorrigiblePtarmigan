@@ -72,7 +72,7 @@ exports.makeDiningTables = function(guests, numPerTable) {
     }
   }
 
-  console.log(allTables);
+  // console.log(allTables);
   // return an array of tables, and each table is an array of guests
   return allTables;
 };
