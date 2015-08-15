@@ -1,0 +1,37 @@
+<div class="container default" id="signin">
+
+<!-- hack to enable photo background -->
+  <style>
+    body {
+      background: url("../../assets/signin-img.jpg");
+      background-position: center;
+      margin-top: 40px;
+    }
+  </style>
+
+  <p class="welcome">Welcome Back to Seatly</p>
+
+  <!-- start flexbox -->
+  <div class="flex-container">
+    <div class="add-background">
+      <h1 class="headline signin-and-up">Sign in</h1>
+
+      <form class="auth" name="signinForm" ng-submit="signin()">
+        <!-- username field -->
+        <label for="username">Username: </label>
+        <input type="text" ng-model="user.username" placeholder="Required" class="form-control password">
+        <!-- password field -->
+        <label for="password">Password: </label>
+        <input class="form-control password" type="password" ng-model="user.password" placeholder="Required">
+
+        <!-- sign in button -->
+        <div class="flex-item"><button class="btn btn-info link">Sign in</button></div>
+      </form>
+      <!-- link to sign up -->
+      <p class="link">
+        <a href="#/signup">Don't have an account? <strong>Sign up</strong>...</a>
+      </p>
+    </div>
+  </div> <!-- end flexbox -->
+
+</div>

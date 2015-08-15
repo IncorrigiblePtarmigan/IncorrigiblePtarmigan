@@ -1,0 +1,179 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.flex-container {
+	display: -webkit-flex; /*safari*/
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	align-content: center;
+}
+
+.flex-item {
+	text-align: center;
+}
+
+.add-background {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-right: 75px;
+  padding-left: 75px;
+  border-radius: 5%;
+}
+
+.default {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+li {
+	text-decoration: none;
+}
+
+.welcome {
+	color: #3B1E2D;
+	font-family: 'Bad Script', cursive; 
+	font-size: 55px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.headline {
+	color: #218C8D;
+}
+
+.constraints-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.signup {
+	background-color: #3B1E2D;
+}
+
+div .input-list {
+	margin-top: 10px;
+}
+
+.highlight-box {
+	background-color: #FFFFCC;
+	text-indent: 10px;
+}
+
+.color-border {
+	border-style: solid;
+	border-width: 3px;
+	border-color: #8EDC9D;
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+
+.add-next-guest {
+	background-color: #6CCECB;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.plus-one {
+  margin-top: 20px;
+  color: #473E3F;
+}
+
+.done-adding {
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.center-img {
+	text-align: center;
+  margin: 40px 0px 0px 0px;
+  border: 7px solid black;
+  border-radius: 20px;
+}
+
+h1, .link {
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.auth {
+	text-align: center;
+}
+
+.signin-and-up {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.link {
+	margin-top: 20px;
+}
+
+.password {
+	margin: 0px 0 10px 0;
+}
+
+#auth-label {
+	text-align: left;
+	text-indent: 3px;
+	color: #473E3F;
+}
+
+table, th, td {
+	border: 1px solid black;
+	padding: 5px;
+}
+
+.name:hover {
+	background-color: #218C8D;
+	cursor: pointer;
+}
+
+tr:nth-child(even) {
+	background-color: #6CCECB; 
+}
+
+tr:nth-child(odd) {
+	background-color: #8EDC9D;
+}
+
+
+tr:nth-child(2) {
+	background-color: #F9E559;
+}
+tr:nth-child(1) {
+	background-color: #EF7126;
+}
+
+.listview h5 {
+	text-align: center;
+	margin: 10px 0;
+}
+
+table: {
+	margin: 10px;
+}
+
+.diningTables {
+	width: 500px;
+	margin: 20px auto;
+}
+
+.people {
+	width: 300px;
+	height: 40px;
+	margin: 20px 0;
+	text-align: center;
+}
+
+.tableSize {
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.signout {
+	text-align: center;
+	vertical-align: center;
+	margin-top: 7px;
+}
