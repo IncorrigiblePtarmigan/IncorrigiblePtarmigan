@@ -1,5 +1,5 @@
 angular.module('seatly.list', [])
-.controller('listController',['$scope', 'List', 'Auth', function($scope, List, Auth) {
+.controller('listController', ['$scope', 'List', 'Auth', 'guestInputFactory', function($scope, List, Auth, guestInputFactory) {
   // change scope variables to center around
   // a list of tables with guests in those tables
   $scope.diningTbls = [];
@@ -17,6 +17,7 @@ angular.module('seatly.list', [])
     // this function will get a list of tables under .data
     .then(function(allGuests) {
       $scope.diningTbls = allGuests.data;
+      console.log(' in init');
     })
     .catch(function(err) {
       console.log(new Error(err));
@@ -28,16 +29,17 @@ angular.module('seatly.list', [])
     // NOTE: NOT MVP. uncomment when you
     // want to keep working on it
 
-    // List.getGuest(guestName)
-    // .then(function(guest) {
-    //   console.log(guest.data);
-    //   $scope.guest = guest.data;
-    //   // hide the list view and unhide the edit view
-    //   $scope.inEdit = true;
-    // })
-    // .catch(function(err) {
-    //   console.log(new Error(err));
-    // });
+    List.getGuest(guestName)
+    .then(function(guest) {
+      console.log(guest.data);
+      $scope.guest = guest.data;
+      // hide the list view and unhide the edit view
+      $scope.inEdit = true;
+      console.log($scope.guest);
+    })
+    .catch(function(err) {
+      console.log(new Error(err));
+    });
   };
 
   // save the edited information to db
@@ -61,12 +63,41 @@ angular.module('seatly.list', [])
         contraints: [],
         diningTableId: null
       }
-      $scope.inEdit = false;
       $scope.init();
+      $scope.inEdit = false;
       return res;
     });
   };
 
+  // don't save changes made to guest, but return to List View
+  $scope.reverseRedirect = function() {
+    $scope.inEdit = false;
+  };
+
+  // delete current guest and remove all other reference to
+  // them in other guests' plus-one or constraint fields
+  $scope.deleteGuest = function() {
+    List.deleteGuest($scope.guest)
+    .then(function() {
+      // must go through algorithm again if you delete guests
+      $scope.reshuffle();
+      $scope.reverseRedirect();
+    });
+  };
+
+  // resort dining tables
+  $scope.reshuffle = function() {
+    var pplPerTable = $scope.diningTbls[0].guestsAtTable.length;
+    guestInputFactory.sortGuests(pplPerTable)
+    .then(function() {
+      $scope.init();
+    })
+    .catch(function(err) {
+      console.log(new Error(err));
+    });
+  };
+
+  // signout! on multiple pages and not very DRY, but functional
   $scope.signout = function() {
     Auth.signout();
   };
